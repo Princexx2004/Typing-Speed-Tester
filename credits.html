@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeFlow — Credits</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-icon">⌨</div>
+      <span>TypeFlow</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="test.html">Typing Test</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="credits.html" class="active">Credits</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="settingsToggle" title="Settings">⚙</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle Theme">🌙</button>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="test.html">Typing Test</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="credits.html" class="active">Credits</a>
+  </div>
+
+  <div class="settings-panel" id="settingsPanel">
+    <h3>Settings</h3>
+    <div class="setting-group">
+      <label>Theme</label>
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="dark">Dark</button>
+        <button class="theme-option" data-theme="light">Light</button>
+        <button class="theme-option" data-theme="ocean">Ocean</button>
+        <button class="theme-option" data-theme="sunset">Sunset</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label>Preferences</label>
+      <div class="toggle-setting">
+        <span>Sound Effects</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soundToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-setting">
+        <span>Particles Background</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="particlesToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container credits-page">
+      <div class="credits-hero animate-in">
+        <div class="dev-avatar">TF</div>
+        <h1>About TypeFlow</h1>
+        <p>A premium typing speed tester built with passion</p>
+      </div>
+
+      <div class="credits-grid">
+        <div class="credit-card glass-card animate-in">
+          <h3>🚀 About the Project</h3>
+          <p>TypeFlow is a premium, SaaS-level typing speed tester designed to help users improve their typing skills through real-time feedback, advanced analytics, and a beautiful, motivating interface.</p>
+          <p style="margin-top:12px;">Built entirely with vanilla technologies — no frameworks, no dependencies — proving that stunning web applications don't require heavy tooling.</p>
+        </div>
+
+        <div class="credit-card glass-card animate-in animate-in-delay-1">
+          <h3>🛠 Tech Stack</h3>
+          <p>Pure web technologies, zero dependencies:</p>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Vanilla JavaScript</span>
+            <span class="tech-tag">Canvas API</span>
+            <span class="tech-tag">LocalStorage API</span>
+            <span class="tech-tag">Web Audio API</span>
+            <span class="tech-tag">CSS Animations</span>
+            <span class="tech-tag">Glassmorphism</span>
+          </div>
+        </div>
+
+        <div class="credit-card glass-card animate-in animate-in-delay-2">
+          <h3>✨ Key Features</h3>
+          <ul>
+            <li>• Real-time WPM &amp; accuracy tracking</li>
+            <li>• Character-by-character highlighting</li>
+            <li>• Multiple timer modes (15s, 30s, 60s, 120s)</li>
+            <li>• Difficulty levels (Easy, Medium, Hard)</li>
+            <li>• Live speed graph analytics</li>
+            <li>• Keyboard visualizer</li>
+            <li>• Leaderboard with localStorage</li>
+            <li>• Anti-cheat protection</li>
+            <li>• 4 theme options</li>
+            <li>• Daily challenges</li>
+            <li>• Sound effects</li>
+            <li>• Confetti celebration</li>
+          </ul>
+        </div>
+
+        <div class="credit-card glass-card animate-in animate-in-delay-3">
+          <h3>👤 Developer</h3>
+          <p><strong>Subhadeep Patra</strong></p>
+          <p>Full-Stack Developer passionate about creating beautiful, performant web experiences.</p>
+          <div class="contact-links">
+            <a href="https://github.com/Princexx2004" class="contact-link">
+              <span>GH</span> GitHub
+            </a>
+            <a href="https://x.com/subhadeepx007" class="contact-link">
+              <span>TW</span> Twitter
+            </a>
+            <a href="prince.midnapore@gmail.com" class="contact-link">
+              <span>@</span> Email
+            </a>
+            <a href="www.linkedin.com/in/subhadeep-patra-132b82307" class="contact-link">
+              <span>LI</span> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card animate-in" style="padding:32px; text-align:center; margin-top:20px;">
+        <h3 style="margin-bottom:12px;">Version Info</h3>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">
+          TypeFlow v2.0.0 &bull; Released February 2026 &bull; MIT License
+        </p>
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-top:8px;">
+          Made with ❤ using pure HTML, CSS &amp; JavaScript
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:60px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>TypeFlow v2.0 — Built with HTML, CSS &amp; Vanilla JavaScript &bull; © 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

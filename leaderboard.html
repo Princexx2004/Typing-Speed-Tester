@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeFlow — Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-icon">⌨</div>
+      <span>TypeFlow</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="test.html">Typing Test</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="settingsToggle" title="Settings">⚙</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle Theme">🌙</button>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="test.html">Typing Test</a>
+    <a href="leaderboard.html" class="active">Leaderboard</a>
+    <a href="credits.html">Credits</a>
+  </div>
+
+  <div class="settings-panel" id="settingsPanel">
+    <h3>Settings</h3>
+    <div class="setting-group">
+      <label>Theme</label>
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="dark">Dark</button>
+        <button class="theme-option" data-theme="light">Light</button>
+        <button class="theme-option" data-theme="ocean">Ocean</button>
+        <button class="theme-option" data-theme="sunset">Sunset</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label>Preferences</label>
+      <div class="toggle-setting">
+        <span>Sound Effects</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soundToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-setting">
+        <span>Particles Background</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="particlesToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container leaderboard-page">
+      <div class="section-title" style="margin-bottom:40px;">
+        <div class="badge">Rankings</div>
+        <h2>Leaderboard</h2>
+        <p>Top typists ranked by speed. Can you make it to the top?</p>
+      </div>
+
+      <div class="leaderboard-header">
+        <div class="leaderboard-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="15">15s</button>
+          <button class="filter-btn" data-filter="30">30s</button>
+          <button class="filter-btn" data-filter="60">60s</button>
+          <button class="filter-btn" data-filter="120">120s</button>
+        </div>
+        <button class="btn btn-danger btn-sm" id="clearLeaderboard">Clear All</button>
+      </div>
+
+      <div class="glass-card" style="padding:0; overflow:hidden;">
+        <div class="leaderboard-table-wrap">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>WPM</th>
+                <th>Accuracy</th>
+                <th>Mode</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+            </tbody>
+          </table>
+        </div>
+        <div class="leaderboard-empty" id="leaderboardEmpty" style="display:none;">
+          <div class="empty-icon">🏆</div>
+          <p>No scores yet. Be the first to make it on the board!</p>
+          <a href="test.html" class="btn btn-primary btn-sm" style="margin-top:16px;">Take a Test</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>TypeFlow v2.0 — Built with HTML, CSS &amp; Vanilla JavaScript &bull; © 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

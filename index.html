@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeFlow — Master Your Typing Speed</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>">
+</head>
+<body>
+  <!-- Background Effects -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+  <div class="bg-gradient-orb orb-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-icon">⌨</div>
+      <span>TypeFlow</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="test.html">Typing Test</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="settingsToggle" title="Settings">⚙</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle Theme">🌙</button>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">Home</a>
+    <a href="test.html">Typing Test</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="credits.html">Credits</a>
+  </div>
+
+  <!-- Settings Panel -->
+  <div class="settings-panel" id="settingsPanel">
+    <h3>Settings</h3>
+    <div class="setting-group">
+      <label>Theme</label>
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="dark">Dark</button>
+        <button class="theme-option" data-theme="light">Light</button>
+        <button class="theme-option" data-theme="ocean">Ocean</button>
+        <button class="theme-option" data-theme="sunset">Sunset</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label>Preferences</label>
+      <div class="toggle-setting">
+        <span>Sound Effects</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soundToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-setting">
+        <span>Particles Background</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="particlesToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">✨ Free &amp; Open Source Typing Trainer</div>
+          <h1>
+            Master Your<br>
+            <span class="gradient-text">Typing Speed</span>
+          </h1>
+          <p class="hero-subtitle">
+            Improve your typing skills with real-time analytics, detailed performance tracking, and a beautiful interface designed to keep you focused.
+          </p>
+          <div class="hero-cta">
+            <a href="test.html" class="btn btn-primary btn-lg">Start Typing Test →</a>
+            <a href="leaderboard.html" class="btn btn-secondary btn-lg">View Leaderboard</a>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-number" data-count="50000">0</div>
+            <div class="stat-label">Tests Completed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number" data-count="12000">0</div>
+            <div class="stat-label">Active Typists</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number" data-count="180">0</div>
+            <div class="stat-label">Top WPM Record</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="keyboard-preview">
+            <div class="keyboard-row">
+              <div class="key">Q</div><div class="key">W</div><div class="key active-key">E</div>
+              <div class="key">R</div><div class="key">T</div><div class="key">Y</div>
+              <div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key">A</div><div class="key">S</div><div class="key">D</div>
+              <div class="key active-key">F</div><div class="key">G</div><div class="key">H</div>
+              <div class="key">J</div><div class="key">K</div><div class="key">L</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key wide">Shift</div>
+              <div class="key">Z</div><div class="key">X</div><div class="key">C</div>
+              <div class="key">V</div><div class="key">B</div><div class="key">N</div>
+              <div class="key">M</div><div class="key wide">Shift</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key wider">Ctrl</div><div class="key">Alt</div>
+              <div class="key space-key active-key">Space</div>
+              <div class="key">Alt</div><div class="key wider">Ctrl</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="section-title">
+          <div class="badge">Features</div>
+          <h2>Everything You Need to Improve</h2>
+          <p>Professional tools and analytics to take your typing skills to the next level.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card glass-card animate-in">
+            <div class="feature-icon cyan">⚡</div>
+            <h3>Real-time WPM</h3>
+            <p>Track your words per minute in real-time as you type with precision measurement.</p>
+          </div>
+          <div class="feature-card glass-card animate-in animate-in-delay-1">
+            <div class="feature-icon purple">🎯</div>
+            <h3>Accuracy Monitoring</h3>
+            <p>See your accuracy percentage update live with character-by-character feedback.</p>
+          </div>
+          <div class="feature-card glass-card animate-in animate-in-delay-2">
+            <div class="feature-icon blue">🏆</div>
+            <h3>Leaderboards</h3>
+            <p>Compete with others and track your ranking on our global leaderboard.</p>
+          </div>
+          <div class="feature-card glass-card animate-in animate-in-delay-3">
+            <div class="feature-icon green">📊</div>
+            <h3>Performance Analytics</h3>
+            <p>Detailed speed graphs, streak counters, and performance grading after each test.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <div class="badge">Testimonials</div>
+          <h2>Loved by Typists Worldwide</h2>
+          <p>See what our community has to say about their experience.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card glass-card animate-in">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"TypeFlow helped me go from 40 WPM to 95 WPM in just two months. The real-time feedback is incredible and keeps me motivated."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AK</div>
+              <div class="testimonial-info">
+                <h4>Alex Kim</h4>
+                <p>Software Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card animate-in animate-in-delay-1">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"The analytics dashboard is so clean and motivating. I love tracking my progress over time. Best typing app I've used."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SR</div>
+              <div class="testimonial-info">
+                <h4>Sarah Rodriguez</h4>
+                <p>Content Writer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card animate-in animate-in-delay-2">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Beautiful design and super smooth experience. The anti-cheat system makes the leaderboard actually competitive and fair."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MJ</div>
+              <div class="testimonial-info">
+                <h4>Marcus Johnson</h4>
+                <p>Data Analyst</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card glass-card animate-in">
+            <div class="stat-value" data-count="50000">0</div>
+            <div class="stat-desc">Tests Completed</div>
+          </div>
+          <div class="stat-card glass-card animate-in animate-in-delay-1">
+            <div class="stat-value" data-count="12000">0</div>
+            <div class="stat-desc">Active Users</div>
+          </div>
+          <div class="stat-card glass-card animate-in animate-in-delay-2">
+            <div class="stat-value" data-count="97">0</div>
+            <div class="stat-desc">Avg. Accuracy %</div>
+          </div>
+          <div class="stat-card glass-card animate-in animate-in-delay-3">
+            <div class="stat-value" data-count="4">0</div>
+            <div class="stat-desc">Time Modes</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="hero" style="padding: 80px 0 100px;">
+      <div class="container">
+        <div class="hero-content">
+          <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 16px;">
+            Ready to Test Your Speed?
+          </h2>
+          <p class="hero-subtitle">
+            Start a free typing test now and discover your true typing potential.
+          </p>
+          <div class="hero-cta">
+            <a href="test.html" class="btn btn-primary btn-lg">Start Free Test →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span>TypeFlow</span>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="test.html">Typing Test</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="credits.html">Credits</a>
+          </div>
+          <div class="footer-social">
+            <a href="#" title="GitHub">GH</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Discord">DC</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>TypeFlow v2.0 — Built with HTML, CSS &amp; Vanilla JavaScript &bull; © 2026</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

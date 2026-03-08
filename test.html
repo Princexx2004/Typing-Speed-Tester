@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeFlow — Typing Test</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-gradient-orb orb-1"></div>
+  <div class="bg-gradient-orb orb-2"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-icon">⌨</div>
+      <span>TypeFlow</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="test.html" class="active">Typing Test</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="settingsToggle" title="Settings">⚙</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle Theme">🌙</button>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="test.html" class="active">Typing Test</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="credits.html">Credits</a>
+  </div>
+
+  <!-- Settings Panel -->
+  <div class="settings-panel" id="settingsPanel">
+    <h3>Settings</h3>
+    <div class="setting-group">
+      <label>Theme</label>
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="dark">Dark</button>
+        <button class="theme-option" data-theme="light">Light</button>
+        <button class="theme-option" data-theme="ocean">Ocean</button>
+        <button class="theme-option" data-theme="sunset">Sunset</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label>Preferences</label>
+      <div class="toggle-setting">
+        <span>Sound Effects</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soundToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-setting">
+        <span>Particles Background</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="particlesToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container test-page">
+
+      <!-- User Setup -->
+      <div class="user-setup glass-card" id="userSetup">
+        <h3>Enter Your Name</h3>
+        <input type="text" id="userName" placeholder="Your name..." maxlength="20" autocomplete="off">
+        <button class="btn btn-primary" id="startSetup">Continue →</button>
+      </div>
+
+      <!-- Daily Challenge -->
+      <div style="text-align:center; margin-bottom: 20px;" id="dailyChallengeArea">
+        <div class="daily-challenge-badge" id="dailyBadge" style="display:none;">
+          🔥 Daily Challenge Active — Beat <span id="dailyTarget">0</span> WPM!
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="test-controls" id="testControls" style="display:none;">
+        <button class="time-btn active" data-time="15">15s</button>
+        <button class="time-btn" data-time="30">30s</button>
+        <button class="time-btn" data-time="60">60s</button>
+        <button class="time-btn" data-time="120">120s</button>
+        <div class="controls-divider"></div>
+        <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="test-stats" id="testStats" style="display:none;">
+        <div class="test-stat">
+          <div class="stat-label">WPM</div>
+          <div class="stat-value wpm" id="liveWpm">0</div>
+        </div>
+        <div class="test-stat">
+          <div class="stat-label">Accuracy</div>
+          <div class="stat-value accuracy" id="liveAccuracy">100%</div>
+        </div>
+        <div class="test-stat">
+          <div class="stat-label">Errors</div>
+          <div class="stat-value errors" id="liveErrors">0</div>
+        </div>
+        <div class="test-stat">
+          <div class="stat-label">Time</div>
+          <div class="stat-value timer" id="liveTimer">15</div>
+        </div>
+        <div class="test-stat">
+          <div class="stat-label">Chars</div>
+          <div class="stat-value chars" id="liveChars">0</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progressContainer" style="display:none;">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Typing Area -->
+      <div class="typing-area glass-card" id="typingArea" style="display:none;">
+        <div class="typing-text" id="typingText"></div>
+        <input type="text" class="typing-input" id="typingInput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+        <div class="typing-overlay" id="typingOverlay">Click here or press any key to start</div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="test-actions" id="testActions" style="display:none;">
+        <button class="btn btn-secondary" id="restartBtn">↻ Restart</button>
+        <button class="btn btn-danger btn-sm" id="stopBtn">■ Stop</button>
+      </div>
+
+      <!-- Analytics Panel -->
+      <div class="analytics-panel glass-card" id="analyticsPanel" style="display:none;">
+        <h3>📊 Live Analytics</h3>
+        <div class="chart-container">
+          <canvas id="speedChart"></canvas>
+        </div>
+        <div class="analytics-stats">
+          <div class="analytics-stat">
+            <div class="label">Best Streak</div>
+            <div class="value" id="bestStreak">0</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="label">Avg Speed</div>
+            <div class="value" id="avgSpeed">0</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="label">Consistency</div>
+            <div class="value" id="consistency">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keyboard Visualizer -->
+      <div class="keyboard-visualizer glass-card" id="keyboardViz" style="display:none;">
+        <h3>⌨ Keyboard</h3>
+        <div class="kb-row">
+          <div class="kb-key" data-key="q">Q</div><div class="kb-key" data-key="w">W</div>
+          <div class="kb-key" data-key="e">E</div><div class="kb-key" data-key="r">R</div>
+          <div class="kb-key" data-key="t">T</div><div class="kb-key" data-key="y">Y</div>
+          <div class="kb-key" data-key="u">U</div><div class="kb-key" data-key="i">I</div>
+          <div class="kb-key" data-key="o">O</div><div class="kb-key" data-key="p">P</div>
+        </div>
+        <div class="kb-row">
+          <div class="kb-key" data-key="a">A</div><div class="kb-key" data-key="s">S</div>
+          <div class="kb-key" data-key="d">D</div><div class="kb-key" data-key="f">F</div>
+          <div class="kb-key" data-key="g">G</div><div class="kb-key" data-key="h">H</div>
+          <div class="kb-key" data-key="j">J</div><div class="kb-key" data-key="k">K</div>
+          <div class="kb-key" data-key="l">L</div>
+        </div>
+        <div class="kb-row">
+          <div class="kb-key wide-kb" data-key="shift">⇧</div>
+          <div class="kb-key" data-key="z">Z</div><div class="kb-key" data-key="x">X</div>
+          <div class="kb-key" data-key="c">C</div><div class="kb-key" data-key="v">V</div>
+          <div class="kb-key" data-key="b">B</div><div class="kb-key" data-key="n">N</div>
+          <div class="kb-key" data-key="m">M</div>
+          <div class="kb-key wide-kb" data-key="backspace">⌫</div>
+        </div>
+        <div class="kb-row">
+          <div class="kb-key space-kb" data-key=" ">Space</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Results Modal -->
+  <div class="modal-overlay" id="resultsModal">
+    <div class="modal glass-card">
+      <div class="result-grade" id="resultGrade">Pro</div>
+      <h2>Test Complete!</h2>
+      <div class="result-stats">
+        <div class="result-stat">
+          <div class="label">WPM</div>
+          <div class="value wpm-val" id="resultWpm">0</div>
+        </div>
+        <div class="result-stat">
+          <div class="label">Accuracy</div>
+          <div class="value acc-val" id="resultAccuracy">0%</div>
+        </div>
+        <div class="result-stat">
+          <div class="label">Mistakes</div>
+          <div class="value err-val" id="resultErrors">0</div>
+        </div>
+        <div class="result-stat">
+          <div class="label">Time</div>
+          <div class="value time-val" id="resultTime">0s</div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="saveScoreBtn">💾 Save Score</button>
+        <button class="btn btn-secondary" id="retryBtn">↻ Retry</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
